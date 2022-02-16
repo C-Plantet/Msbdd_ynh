@@ -15,7 +15,7 @@ const db = new sqlite3.Database('bdd.db', (err) => {
     };
 });
 
-var HTTP_PORT = 8000
+var HTTP_PORT = 5000
 
 // Start server
 app.listen(HTTP_PORT, () => {
