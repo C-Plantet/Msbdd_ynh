@@ -26,7 +26,7 @@ ynh_abort_if_errors
 ynh_print_info --message="Retrieving arguments from the manifest..."
 
 domain=$YNH_APP_ARG_DOMAIN
-path_url="/my_webapp_node"
+path_url="/bdd"
 is_public=$YNH_APP_ARG_IS_PUBLIC
 
 db_name="db_emerginov_test"
@@ -68,7 +68,7 @@ ynh_app_setting_set --app=$app --key=admin_mail_html --value=1
 ynh_print_info --message="Configuring firewall..."
 
 # Find an available port
-port=$(ynh_find_port --port=3000)
+port=$(ynh_find_port --port=8000)
 ynh_app_setting_set --app=$app --key=port --value=$port
 
 #=================================================
@@ -76,7 +76,7 @@ ynh_app_setting_set --app=$app --key=port --value=$port
 #=================================================
 ynh_print_info --message="Installing dependencies..."
 
-ynh_install_nodejs --nodejs_version="12.16.3"
+ynh_install_nodejs --nodejs_version="14.17.3"
 ynh_use_nodejs
 
 #=================================================
@@ -162,12 +162,12 @@ ynh_store_file_checksum --file="$config_file"
 #=================================================
 # SECURE FILES AND DIRECTORIES
 #=================================================
-#ynh_print_info --message="Securing files and directories..."
+ynh_print_info --message="Securing files and directories..."
 
-#chown -R $app: "$final_path"
+chown -R $app: "$final_path"
 # Home directory of the user needs to be owned by root to allow
 # SFTP connections
-#chown root: "$final_path"
+chown root: "$final_path"
 
 #=================================================
 # START SYSTEMD SERVICE

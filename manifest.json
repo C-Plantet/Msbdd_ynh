@@ -1,6 +1,6 @@
 {
-    "name": "Emerginov2",
-    "id": "my_webapp_node",
+    "name": "msbdd",
+    "id": "msbdd",
     "description": {
         "en": ""
     },
@@ -16,8 +16,7 @@
     "multi_instance": true,
     "services": [
         "nginx",
-        "nodejs",
-        "psql"
+        "nodejs"
     ],
     "arguments": {
         "install" : [
@@ -28,7 +27,7 @@
                     "en": "Choose a domain for your Webapp",
                     "fr": "Choisissez un domaine pour votre Webapp"
                 },
-                "example": "domain.org"
+                "example": "bdd.emerginov2home.nohost.me"
             },
             {
                 "name": "is_public",
