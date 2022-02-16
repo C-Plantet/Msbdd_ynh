@@ -32,7 +32,7 @@
 
         if($_POST['method']=="CREATE_TAB"){
             $method = "POST";
-            $addr = "http://localhost:8000/api";
+            $addr = "https://bdd.emerginov2home.nohost.me/bdd/api";
             $postdata= http_build_query(
                 array(
                     'ProjectToken' => $token,
@@ -43,24 +43,24 @@
         }elseif($_POST['method']=="GET_TABLE"){
             $method = "GET";
             $dbname = $json['dbname'];
-            $addr = "http://localhost:8000/$dbname";
+            $addr = "https://bdd.emerginov2home.nohost.me/bdd/$dbname";
             $postdata = http_build_query(array());
         }elseif($_POST['method']=="GET_ID"){
             $method = "GET";
             $dbname = $json['dbname'];
             $id = $json['id'];
-            $addr = "http://localhost:8000/$dbname/$id";
+            $addr = "https://bdd.emerginov2home.nohost.me/bdd/api/$dbname/$id";
             $postdata = http_build_query(array());
         }elseif($_POST['method']=="GET_ELT"){
             $method = "GET";
             $dbname = $json['dbname'];
             $column = $json['column'];
             $elt = $json['elt'];
-            $addr = "http://localhost:8000/$dbname/$column/$elt";
+            $addr = "https://bdd.emerginov2home.nohost.me/bdd/api/$dbname/$column/$elt";
             $postdata = http_build_query(array());
         }elseif($_POST['method']=="ADD_ELT"){
             $method = "POST";
-            $addr = "http://localhost:8000/api/add";
+            $addr = "https://bdd.emerginov2home.nohost.me/bdd/api/add";
             $postdata= http_build_query(
                 array(
                     'ProjectToken' => $token,
@@ -70,7 +70,7 @@
             );
         }elseif($_POST['method']=="PATCH_ELT"){
             $method = "PATCH";
-            $addr = "http://localhost:8000/api/patch";
+            $addr = "https://bdd.emerginov2home.nohost.me/bdd/api/patch";
             $postdata= http_build_query(
                 array(
                     'ProjectToken' => $token,
@@ -82,7 +82,7 @@
             $method = "DELETE";
             $dbname = $json['dbname'];
             $id = $json['id'];
-            $addr = "http://localhost:8000/api/$dbname/$id";
+            $addr = "https://bdd.emerginov2home.nohost.me/bdd/api/$dbname/$id";
             $postdata= http_build_query( array());
         }
         

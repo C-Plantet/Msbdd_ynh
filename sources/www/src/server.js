@@ -22,7 +22,7 @@ app.listen(HTTP_PORT, () => {
     console.log("Server running on port %PORT%".replace("%PORT%",HTTP_PORT))
 });
 
-app.post("/api/",(req,res, next) =>{
+app.post("/bdd/api/",(req,res, next) =>{
     var errors = []
     if(!req.body.dbname){
         errors.push("No name specified for the table")
@@ -50,7 +50,7 @@ app.post("/api/",(req,res, next) =>{
     res.send('fini')
 })
 
-app.get("/api/:dbname", (req, res, next) => {
+app.get("/bdd/api/:dbname", (req, res, next) => {
     var sql = `select * from ${req.params.dbname}`
     var param = []
     db.all(sql, param, (err, rows) => {
@@ -65,7 +65,7 @@ app.get("/api/:dbname", (req, res, next) => {
       });
 });
 
-app.get("/api/:dbname/:id", (req, res, next) => {
+app.get("/bdd/api/:dbname/:id", (req, res, next) => {
     var sql = `select * from ${req.params.dbname} where id = ${req.params.id}`
     var param = []
     db.get(sql, param, (err, row) => {
@@ -80,7 +80,7 @@ app.get("/api/:dbname/:id", (req, res, next) => {
       });
 });
 
-app.get("/api/:dbname/:column/:elt",(req,res, next)=>{
+app.get("/bdd/api/:dbname/:column/:elt",(req,res, next)=>{
     var sql = `select * from ${req.params.dbname} where ${req.params.column} = '${req.params.elt}'`
     var param = []
     db.get(sql, param, (err, row) =>{
@@ -97,7 +97,7 @@ app.get("/api/:dbname/:column/:elt",(req,res, next)=>{
 });
 
 
-app.post("/api/add/", (req, res, next) => {
+app.post("/bdd/api/add/", (req, res, next) => {
     var errors=[]
     if (!req.body.dbname){
         errors.push("No dbname specified for the table");
@@ -129,7 +129,7 @@ app.post("/api/add/", (req, res, next) => {
 
 
 
-app.patch("/api/patch", (req, res, next) => {
+app.patch("/bdd/api/patch", (req, res, next) => {
     var data = {
         dbname: req.body.dbname,
         id: req.body.id,
@@ -150,7 +150,7 @@ app.patch("/api/patch", (req, res, next) => {
 })
 
 
-app.delete("/api/:dbname/:id", (req, res, next) => {
+app.delete("/bdd/api/:dbname/:id", (req, res, next) => {
     var sql = `DELETE FROM ${req.params.dbname} WHERE id = ${req.params.id}`
     var param = []
     db.run(sql, param, function (err, result) {
@@ -163,7 +163,7 @@ app.delete("/api/:dbname/:id", (req, res, next) => {
 })
 
 // Root path
-app.get("/", (req, res, next) => {
+app.get("/bdd", (req, res, next) => {
     res.json({"message":"Ok"})
 });
 
