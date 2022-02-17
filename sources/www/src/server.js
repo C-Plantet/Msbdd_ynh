@@ -22,7 +22,7 @@ app.listen(HTTP_PORT, () => {
     console.log("Server running on port %PORT%".replace("%PORT%",HTTP_PORT))
 });
 
-app.post("/bdd/api/",(req,res, next) =>{
+app.post("/bdd/api",(req,res, next) =>{
     var errors = []
     if(!req.body.dbname){
         errors.push("No name specified for the table")
@@ -97,7 +97,7 @@ app.get("/bdd/api/:dbname/:column/:elt",(req,res, next)=>{
 });
 
 
-app.post("/bdd/api/add/", (req, res, next) => {
+app.post("/bdd/api/add", (req, res, next) => {
     var errors=[]
     if (!req.body.dbname){
         errors.push("No dbname specified for the table");

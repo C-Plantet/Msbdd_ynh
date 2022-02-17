@@ -40,16 +40,18 @@
                     'data' =>$json
                 )
             );
+            echo $json;
         }elseif($_POST['method']=="GET_TABLE"){
             $method = "GET";
             $dbname = $json['dbname'];
-            $addr = "https://bdd.emerginov2home.nohost.me/bdd/$dbname";
+            $addr = "https://bdd.emerginov2home.nohost.me/bdd/api/{$dbname}";
+
             $postdata = http_build_query(array());
         }elseif($_POST['method']=="GET_ID"){
             $method = "GET";
             $dbname = $json['dbname'];
             $id = $json['id'];
-            $addr = "https://bdd.emerginov2home.nohost.me/bdd/api/$dbname/$id";
+            $addr = "https://bdd.emerginov2home.nohost.me/bdd/api/{$dbname}/{$id}";
             $postdata = http_build_query(array());
         }elseif($_POST['method']=="GET_ELT"){
             $method = "GET";
